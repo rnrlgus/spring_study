@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 // 테스트 만들기 단축키 ctrl shift t
 @SpringBootTest
-//@Transactional
+@Transactional
 class MemberServiceIntegrationTest {
 
     @Autowired MemberService memberService;

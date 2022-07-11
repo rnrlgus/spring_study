@@ -1,11 +1,13 @@
 package googoo.startspring.service;
 
 import googoo.startspring.repository.JdbcMemberRepository;
+import googoo.startspring.repository.JdbcTemplateMemberRepository;
 import googoo.startspring.repository.MemberRepository;
 import googoo.startspring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -29,6 +31,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
         //return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
