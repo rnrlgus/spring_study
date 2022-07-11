@@ -1,26 +1,30 @@
 package googoo.startspring.service;
 
-import googoo.startspring.repository.JdbcMemberRepository;
-import googoo.startspring.repository.JdbcTemplateMemberRepository;
-import googoo.startspring.repository.MemberRepository;
-import googoo.startspring.repository.MemoryMemberRepository;
+import googoo.startspring.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 // 직접 스프링 빈 등록하기
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
-
-    @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
+
+    private EntityManager em;
+
+//    private DataSource dataSource;
+//
+//    @Autowired
+//    public SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
 
 
     @Bean
@@ -32,6 +36,7 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
         //return new MemoryMemberRepository();
         //return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        //return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
