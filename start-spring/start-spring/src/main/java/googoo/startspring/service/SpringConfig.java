@@ -1,5 +1,6 @@
 package googoo.startspring.service;
 
+import googoo.startspring.aop.TimeTraceAop;
 import googoo.startspring.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
