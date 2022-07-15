@@ -1,5 +1,6 @@
 package googoo.core;
 
+import googoo.core.discount.DiscountPolicy;
 import googoo.core.discount.FixDiscountPolicy;
 import googoo.core.member.MemberService;
 import googoo.core.member.MemberServiceImpl;
@@ -13,10 +14,18 @@ public class AppConfig {
 
     // 생성자 주입
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemoryMemberRepository());
+        return new MemberServiceImpl(memberRepository());
+    }
+
+    private MemoryMemberRepository memberRepository() {
+        return new MemoryMemberRepository();
     }
 
     public OrderService orderService() {
-        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy() );
+    }
+
+    public DiscountPolicy discountPolicy() {
+        return new FixDiscountPolicy();
     }
 }
