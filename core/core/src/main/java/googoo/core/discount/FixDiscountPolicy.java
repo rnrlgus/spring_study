@@ -2,6 +2,7 @@ package googoo.core.discount;
 
 import googoo.core.member.Grade;
 import googoo.core.member.Member;
+import org.springframework.stereotype.Component;
 
 public class FixDiscountPolicy implements DiscountPolicy {
 

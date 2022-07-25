@@ -2,7 +2,9 @@ package googoo.core.discount;
 
 import googoo.core.member.Grade;
 import googoo.core.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
