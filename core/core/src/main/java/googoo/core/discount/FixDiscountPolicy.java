@@ -4,6 +4,7 @@ import googoo.core.member.Grade;
 import googoo.core.member.Member;
 import org.springframework.stereotype.Component;
 
+@Component
 public class FixDiscountPolicy implements DiscountPolicy {
 
     private int discountFixedAmount = 1000; // 1000원 할인
