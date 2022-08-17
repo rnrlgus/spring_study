@@ -29,4 +29,9 @@ public class MyView {
     private void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest request) {
         model.forEach((key, value) -> request.setAttribute(key, value));
     }
+
+    private MyView viewResolver(String viewName) {
+        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
+    }
+
 }
