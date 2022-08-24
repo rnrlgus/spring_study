@@ -69,12 +69,21 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @PostMapping("/add")
+//    @PostMapping("/add")
     public String addItemV4(Item item) {
         itemRepository.save(item);
 
 //        model.addAttribute("item", item); 자동으로 추가되기 때문에 생략 가능 (인자 Model도 같이 생략 가능)
         return "basic/item";
+    }
+
+    // PRG
+    @PostMapping("/add")
+    public String addItemV5(Item item) {
+        itemRepository.save(item);
+
+//        model.addAttribute("item", item); 자동으로 추가되기 때문에 생략 가능 (인자 Model도 같이 생략 가능)
+        return "redirect:/basic/items/" + item.getId();
     }
 
     @GetMapping("/{itemId}/edit")
