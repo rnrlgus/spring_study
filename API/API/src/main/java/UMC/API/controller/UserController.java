@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @PostMapping("users/delete")
-    public ResponseEntity<?> delete(@RequestParam String userName) {
+    public ResponseEntity<?> delete(@RequestParam("userName") String userName) {
         userService.deleteUser(userName);
 
         return new ResponseEntity<>(HttpStatus.OK);
